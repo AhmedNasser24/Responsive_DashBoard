@@ -46,6 +46,6 @@ class Assets {
 
   /// Assets for imagesWattetAccount
   /// assets/images/wattet_account.svg
-  static const String imagesWattetAccount = "assets/images/wattet_account.svg";
+  static const String imagesWalletAccount = "assets/images/wattet_account.svg";
 }
 
