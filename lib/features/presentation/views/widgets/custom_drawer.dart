@@ -23,6 +23,7 @@ class CustomDrawer extends StatelessWidget {
       color: kWhiteColor,
       child: const CustomScrollView(
         slivers: [
+          SliverGap(16),
           SliverToBoxAdapter(child: UserInfo(userInfoModel: userInfoItem)),
           SliverListOfDrawerItems(),
           SliverFillRemaining(

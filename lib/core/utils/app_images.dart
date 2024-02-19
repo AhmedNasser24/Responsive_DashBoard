@@ -1,5 +1,14 @@
 class Assets {
+  Assets._();
   
+  /// Assets for imagesArrowDown
+  /// assets/images/arrow-down.svg
+  static const String imagesArrowDown = "assets/images/arrow-down.svg";
+
+  /// Assets for imagesArrowRight
+  /// assets/images/arrow-right.svg
+  static const String imagesArrowRight = "assets/images/arrow-right.svg";
+
   /// Assets for imagesAvatar1
   /// assets/images/avatar1.svg
   static const String imagesAvatar1 = "assets/images/avatar1.svg";
@@ -11,6 +20,10 @@ class Assets {
   /// Assets for imagesBalance
   /// assets/images/balance.svg
   static const String imagesBalance = "assets/images/balance.svg";
+
+  /// Assets for imagesCardBackground
+  /// assets/images/card_background.svg
+  static const String imagesCardBackground = "assets/images/card_background.svg";
 
   /// Assets for imagesDashboard
   /// assets/images/dashboard.svg
@@ -28,6 +41,10 @@ class Assets {
   /// assets/images/logout.svg
   static const String imagesLogout = "assets/images/logout.svg";
 
+  /// Assets for imagesMaskGroup
+  /// assets/images/Mask_group.svg
+  static const String imagesMaskGroup = "assets/images/Mask_group.svg";
+
   /// Assets for imagesMyInvestments
   /// assets/images/my_investments.svg
   static const String imagesMyInvestments = "assets/images/my_investments.svg";
@@ -44,8 +61,8 @@ class Assets {
   /// assets/images/statistics.svg
   static const String imagesStatistics = "assets/images/statistics.svg";
 
-  /// Assets for imagesWattetAccount
-  /// assets/images/wattet_account.svg
-  static const String imagesWalletAccount = "assets/images/wattet_account.svg";
+  /// Assets for imagesWalletAccount
+  /// assets/images/wallet_account.svg
+  static const String imagesWalletAccount = "assets/images/wallet_account.svg";
 }
 
