@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard/constants.dart';
 
 class CustomIcon extends StatelessWidget {
   const CustomIcon({
@@ -12,7 +13,7 @@ class CustomIcon extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: const BoxDecoration(
         shape: BoxShape.circle ,
-        color:  Color.fromARGB(255, 247, 233, 233)
+        color:  kBackgroundColor
       ),
       child: const Center(child: Icon(Icons.add)),
     );

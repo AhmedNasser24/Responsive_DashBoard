@@ -5,9 +5,13 @@ import 'package:responsive_dashboard/core/utils/app_images.dart';
 
 class AllExpensesItemHeader extends StatelessWidget {
   const AllExpensesItemHeader({
-    super.key, required this.image,
+    super.key,
+    required this.image,
+    this.imageColor,
   });
-  final String image ;
+  final String image;
+  final Color? imageColor;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,12 +20,23 @@ class AllExpensesItemHeader extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: kBlackColor.withOpacity(0.03),
+            color:
+                imageColor?.withOpacity(0.1) ?? kBlackColor.withOpacity(0.03),
           ),
-          child: SvgPicture.asset(image),
+          child: imageColor == null
+              ? SvgPicture.asset(image)
+              : SvgPicture.asset(
+                  image,
+                  colorFilter: ColorFilter.mode(imageColor!, BlendMode.srcIn),
+                ),
         ),
         const Spacer(),
-        SvgPicture.asset(Assets.imagesArrowRight)
+        imageColor == null
+            ? SvgPicture.asset(Assets.imagesArrowRight)
+            : SvgPicture.asset(
+                Assets.imagesArrowRight,
+                colorFilter: ColorFilter.mode(imageColor!, BlendMode.srcIn),
+              )
       ],
     );
   }

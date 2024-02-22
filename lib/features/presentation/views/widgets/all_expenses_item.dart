@@ -5,8 +5,42 @@ import 'package:responsive_dashboard/core/utils/app_styles.dart';
 import 'package:responsive_dashboard/features/data/models/all_expenses_item_model.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/all_expenses_item_header.dart';
 
-class AllExpensesItem extends StatelessWidget {
-  const AllExpensesItem({
+class ActiveAllExpensesItem extends StatelessWidget {
+  const ActiveAllExpensesItem({
+    super.key,
+    required this.item,
+  });
+  final AllExpensesItemModel item;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: const ShapeDecoration(
+        color: kBlueColor,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1, color: Color(0xffF1F1F1)),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AllExpensesItemHeader(image: item.icon , imageColor: kWhiteColor),
+          const Gap(30),
+          Text(item.title, style: AppStyle.semiBold16.copyWith(color :kWhiteColor)),
+          const Gap(10),
+          Text(item.date, style: AppStyle.regular14.copyWith(color: const Color(0xfffafafa))),
+          const Gap(10),
+          Text(item.price, style: AppStyle.semiBold24.copyWith(color :kWhiteColor)),
+        ],
+      ),
+    );
+  }
+}
+
+class InActiveAllExpensesItem extends StatelessWidget {
+  const InActiveAllExpensesItem({
     super.key,
     required this.item,
   });
@@ -38,3 +72,4 @@ class AllExpensesItem extends StatelessWidget {
     );
   }
 }
+

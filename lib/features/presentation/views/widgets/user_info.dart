@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_dashboard/constants.dart';
 import 'package:responsive_dashboard/core/utils/app_styles.dart';
 import 'package:responsive_dashboard/features/data/models/user_info_model.dart';
 
@@ -9,10 +10,9 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280,
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 247, 233, 233),
+        color: kBackgroundColor,
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
