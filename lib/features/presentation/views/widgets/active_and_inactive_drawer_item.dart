@@ -14,6 +14,8 @@ class InActiveDrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
+
       leading: SvgPicture.asset(item.image),
       title: Text(item.title, style: AppStyle.regular16),
     );
@@ -31,6 +33,7 @@ class ActiveDrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading: SvgPicture.asset(item.image),
       title: Text(item.title, style: AppStyle.bold16),
       trailing: Container(

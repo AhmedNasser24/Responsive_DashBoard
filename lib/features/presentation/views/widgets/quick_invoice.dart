@@ -2,19 +2,19 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:responsive_dashboard/constants.dart';
 import 'package:responsive_dashboard/core/utils/app_styles.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/custom_list_of_user_info.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/fill_customer_info.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/quick_invoice_header.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/transaction.dart';
 
 class QuickInvoice extends StatelessWidget {
   const QuickInvoice({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kWhiteColor,
-      padding: const EdgeInsets.all(16),
+    return CustomBackGroundContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,9 +31,14 @@ class QuickInvoice extends StatelessWidget {
           ),
           const Gap(12),
           const CustomListViewOfUserInfo(),
+          const Gap(25),
+          const FillCustomerInfo(),
+          const Gap(25),
+          const FillCustomerInfo(),
+          const Gap(25),
+          const Transaction(),
         ],
       ),
     );
   }
 }
-

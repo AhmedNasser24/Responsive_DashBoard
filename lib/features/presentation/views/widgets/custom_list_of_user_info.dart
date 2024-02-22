@@ -7,7 +7,6 @@ class CustomListViewOfUserInfo extends StatelessWidget {
   const CustomListViewOfUserInfo({
     super.key,
   });
-
   static const List<UserInfoModel> userInfoItems = [
     UserInfoModel(
         title: 'Madrani Andi',
@@ -28,12 +27,30 @@ class CustomListViewOfUserInfo extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: userInfoItems
-            .map((e) => IntrinsicWidth(child: UserInfo(userInfoModel: e)))
-            .toList(),
+    
+   ScrollController scrollController =  ScrollController();
+    return Scrollbar(
+      controller: scrollController,
+      // radius: Radius.circular(4),
+      thickness: 7,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom : 9.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          controller: scrollController,
+          child: Row(
+            children: userInfoItems
+                .map(
+                  (e) => IntrinsicWidth(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: UserInfo(userInfoModel: e),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ),
       ),
     );
     // return SizedBox(
