@@ -27,14 +27,12 @@ class CustomListViewOfUserInfo extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    
-   ScrollController scrollController =  ScrollController();
+    ScrollController scrollController = ScrollController();
     return Scrollbar(
       controller: scrollController,
-      // radius: Radius.circular(4),
       thickness: 7,
       child: Padding(
-        padding: const EdgeInsets.only(bottom : 9.0),
+        padding: const EdgeInsets.only(bottom: 9.0), // for scroll bar
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           controller: scrollController,

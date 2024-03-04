@@ -13,6 +13,7 @@ class ResponsiveDashBoard extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFF7F9FA) ,
+        fontFamily: 'Montserrat' ,
       ),
        home: const HomeView(),
     );
