@@ -1,14 +1,31 @@
-import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_dashboard/core/utils/app_styles.dart';
-import 'package:responsive_dashboard/features/presentation/views/widgets/card_preview.dart';
-import 'package:responsive_dashboard/features/presentation/views/widgets/custom_dot_indicator.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/custom_expandable_pageview.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/dots_indicator.dart';
 
-class MyCard extends StatelessWidget {
+class MyCard extends StatefulWidget {
   const MyCard({
     super.key,
   });
+
+  @override
+  State<MyCard> createState() => _MyCardState();
+}
+
+class _MyCardState extends State<MyCard> {
+  late PageController pageController;
+  int selectedPage = 0;
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: 0);
+    pageController.addListener(() {
+      setState(() {
+        selectedPage = pageController.page!.round();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +34,10 @@ class MyCard extends StatelessWidget {
       children: [
         const Text('My Card', style: AppStyle.semiBold20),
         const Gap(15),
-        ExpandablePageView(
-          children: List.generate(3, (index) => const CardPreview()),
-        ),
+        CustomExpandablePageView(pageController: pageController),
         const Gap(18),
-        const CustomDotIndicator(active: true,)
+        DotsIndicator(selectedPage: selectedPage , pageController: pageController),
       ],
     );
   }
 }
-
