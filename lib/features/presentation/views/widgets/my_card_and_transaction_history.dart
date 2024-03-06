@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:responsive_dashboard/constants.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/custom_background_container.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/custom_divider.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/my_card.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/transaction_history.dart';
@@ -12,13 +11,8 @@ class MyCardAndTransactionHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-      color: kWhiteColor,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: const Column(
+    return const CustomBackGroundContainer(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           MyCard(),
@@ -29,4 +23,3 @@ class MyCardAndTransactionHistory extends StatelessWidget {
     );
   }
 }
-
