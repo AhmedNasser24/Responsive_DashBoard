@@ -7,18 +7,19 @@ import 'package:responsive_dashboard/features/presentation/views/widgets/income_
 class IncomeContent extends StatelessWidget {
   const IncomeContent({super.key});
   static const List<IncomeModel> incomeModel = [
-    IncomeModel(title: 'Design service', percent: 40 , color: Color(0xFF208CC8)),
-    IncomeModel(title: 'Others', percent: 22 , color: Color(0xFFE2DECD)),
-    IncomeModel(title: 'Product royalti', percent: 20 , color: Color(0xFF064061)),
-    IncomeModel(title: 'Design product', percent: 25 , color: Color(0xFF4EB7F2)),
+    IncomeModel(title: 'Design service', percent: 40, color: Color(0xFF208CC8)),
+    IncomeModel(title: 'Other', percent: 22, color: Color(0xFFE2DECD)),
+    IncomeModel(
+        title: 'Product royalti', percent: 20, color: Color(0xFF064061)),
+    IncomeModel(title: 'Design product', percent: 25, color: Color(0xFF4EB7F2)),
   ];
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return const Row(
       children: [
-        const CustomPieChart(),
-        const Gap(20),
-        IncomeDetails(incomeModel: incomeModel[1]),
+        CustomPieChart(incomeModel: incomeModel),
+        Gap(20),
+        Expanded(child: IncomeDetails(incomeModel: incomeModel)),
       ],
     );
   }

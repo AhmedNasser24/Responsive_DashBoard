@@ -1,14 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard/features/data/models/Income_model.dart';
 
 class CustomPieChart extends StatelessWidget {
-  const CustomPieChart({super.key});
-
+  const CustomPieChart({super.key , required this.incomeModel});
+  final List < IncomeModel > incomeModel ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
-      width: 120,
+      height: 100,
+      width: 100,
       child: PieChart(
         
         PieChartData(
@@ -16,32 +17,12 @@ class CustomPieChart extends StatelessWidget {
           startDegreeOffset: -135,
           pieTouchData: PieTouchData(enabled: true),
           
-          sections: [
-            PieChartSectionData(
-              value: 40,
+          sections: incomeModel.map((e) => PieChartSectionData(
+              value: e.percent.toDouble() ,
               showTitle: false,
               radius: 20,
-              color: const Color(0xFF208CC8),
-            ),
-            PieChartSectionData(
-              value: 22,
-              showTitle: false,
-              radius: 20,
-              color: const Color(0xFFE2DECD),
-            ),
-            PieChartSectionData(
-              value: 20,
-              showTitle: false,
-              radius: 20,
-              color: const Color(0xFF064061),
-            ),
-            PieChartSectionData(
-              value: 25,
-              showTitle: false,
-              color: const Color(0xFF4EB7F2),
-              radius: 20,
-            ),
-          ],
+              color: e.color,
+            ),).toList() 
         ),
       ),
     );

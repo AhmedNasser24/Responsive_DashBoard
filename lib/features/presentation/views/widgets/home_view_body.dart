@@ -12,11 +12,11 @@ class DesktopLayout extends StatelessWidget {
     return const Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(flex: 1, child: CustomDrawer()),
+        Expanded(flex: 2, child: CustomDrawer()),
         Gap(32),
-        Expanded(flex: 2, child: MainContent()),
+        Expanded(flex: 5, child: MainContent()),
         Gap(32),
-        Expanded(flex: 1, child: TrailingContent()),
+        Expanded(flex: 3, child: TrailingContent()),
       ],
     );
   }
