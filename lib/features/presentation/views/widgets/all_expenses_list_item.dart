@@ -29,9 +29,13 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
         price: r'$20.129'),
   ];
   int selectedItem = 0;
+  ScrollController scrollController = ScrollController(initialScrollOffset: 52);
   @override
   Widget build(BuildContext context) {
+    double screenW = MediaQuery.sizeOf(context).width;
+    double itemWidth = 180;
     return SingleChildScrollView(
+      controller: scrollController,
       scrollDirection: Axis.horizontal,
       child: Row(
           // children: items.map((item) => Expanded(child: AllExpensesItem(item: item))).toList(),
@@ -39,16 +43,28 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
         int key = e.key;
         var item = e.value;
         return GestureDetector(
-          onTap: () {
-            if (key != selectedItem){
-            setState(() {
-              selectedItem = key ;
-            });}
-          },
-          child: 
-              AllExpensesItem(item: item , active : selectedItem == key)
-        );
+            onTap: () {
+              if (key != selectedItem) {
+                setState(() {
+                  selectedItem = key;
+                });
+              }
+              scrollToIndex(key, itemWidth);
+            },
+            child: AllExpensesItem(item: item, active: selectedItem == key));
       }).toList()),
+    );
+  }
+
+  void scrollToIndex(int key, double itemWidth) {
+    double offset = key * itemWidth;
+    if (offset > scrollController.position.maxScrollExtent) {
+      offset = scrollController.position.maxScrollExtent;
+    }
+    scrollController.animateTo(
+      offset,
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
     );
   }
 }
