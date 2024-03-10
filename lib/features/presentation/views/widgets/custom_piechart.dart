@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_dashboard/features/data/models/Income_model.dart';
+import 'package:responsive_dashboard/features/data/models/income_model.dart';
 
 class CustomPieChart extends StatelessWidget {
   const CustomPieChart({super.key , required this.incomeModel});

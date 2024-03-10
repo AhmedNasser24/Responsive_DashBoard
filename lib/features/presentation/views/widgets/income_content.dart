@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:responsive_dashboard/features/data/models/Income_model.dart';
+import 'package:responsive_dashboard/features/data/models/income_model.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/custom_piechart.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/income_details.dart';
 
