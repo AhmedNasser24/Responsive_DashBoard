@@ -31,27 +31,24 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
   int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
-    return Row(
-        // children: items.map((item) => Expanded(child: AllExpensesItem(item: item))).toList(),
-        children: items.asMap().entries.map((e) {
-      int key = e.key;
-      var item = e.value;
-      return Expanded(
-        child: GestureDetector(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+          // children: items.map((item) => Expanded(child: AllExpensesItem(item: item))).toList(),
+          children: items.asMap().entries.map((e) {
+        int key = e.key;
+        var item = e.value;
+        return GestureDetector(
           onTap: () {
             if (key != selectedItem){
             setState(() {
               selectedItem = key ;
             });}
           },
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: key == 1 ? 12.0 : 0),
-            child: selectedItem == key
-                ? ActiveAllExpensesItem(item: item)
-                : InActiveAllExpensesItem(item: item),
-          ),
-        ),
-      );
-    }).toList());
+          child: 
+              AllExpensesItem(item: item , active : selectedItem == key)
+        );
+      }).toList()),
+    );
   }
 }

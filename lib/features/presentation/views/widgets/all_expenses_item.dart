@@ -3,73 +3,46 @@ import 'package:gap/gap.dart';
 import 'package:responsive_dashboard/constants.dart';
 import 'package:responsive_dashboard/core/utils/app_styles.dart';
 import 'package:responsive_dashboard/features/data/models/all_expenses_item_model.dart';
+import 'package:responsive_dashboard/features/presentation/views/widgets/all_expenses_item_decoration.dart';
 import 'package:responsive_dashboard/features/presentation/views/widgets/all_expenses_item_header.dart';
 
-class ActiveAllExpensesItem extends StatelessWidget {
-  const ActiveAllExpensesItem({
+class AllExpensesItem extends StatelessWidget {
+  const AllExpensesItem({
     super.key,
     required this.item,
+    required this.active,
   });
   final AllExpensesItemModel item;
+  final bool active;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: const ShapeDecoration(
-        color: kBlueColor,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Color(0xffF1F1F1)),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-        ),
-      ),
+    return AllExpensesItemDecoration(
+      color: active ? kBlueColor : kWhiteColor,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AllExpensesItemHeader(image: item.icon , imageColor: kWhiteColor),
-          const Gap(30),
-          Text(item.title, style: AppStyle.semiBold16.copyWith(color :kWhiteColor)),
-          const Gap(10),
-          Text(item.date, style: AppStyle.regular14.copyWith(color: const Color(0xfffafafa))),
-          const Gap(10),
-          Text(item.price, style: AppStyle.semiBold24.copyWith(color :kWhiteColor)),
+          AllExpensesItemHeader(
+              image: item.icon, imageColor: active ? kWhiteColor : null),
+          const Gap(35),
+          Text(item.title,
+              style: active
+                  ? AppStyle.semiBold16.copyWith(color: kWhiteColor)
+                  : AppStyle.semiBold16),
+          const Gap(15),
+          Text(item.date,
+              style: active
+                  ? AppStyle.regular14.copyWith(color: const Color(0xfffafafa))
+                  : AppStyle.regular14),
+          const Gap(15),
+          Text(item.price,
+              style: active
+                  ? AppStyle.semiBold24.copyWith(color: kWhiteColor)
+                  : AppStyle.semiBold24),
         ],
       ),
     );
   }
 }
 
-class InActiveAllExpensesItem extends StatelessWidget {
-  const InActiveAllExpensesItem({
-    super.key,
-    required this.item,
-  });
-  final AllExpensesItemModel item;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: const ShapeDecoration(
-        color: kWhiteColor,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Color(0xffF1F1F1)),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AllExpensesItemHeader(image: item.icon),
-          const Gap(30),
-          Text(item.title, style: AppStyle.semiBold16),
-          const Gap(10),
-          Text(item.date, style: AppStyle.regular14),
-          const Gap(10),
-          Text(item.price, style: AppStyle.semiBold24),
-        ],
-      ),
-    );
-  }
-}
 

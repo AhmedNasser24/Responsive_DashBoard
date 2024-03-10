@@ -10,14 +10,12 @@ class MainContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          AllExpenses(),
-          Gap(32),
-          QuickInvoice(),
-        ],
-      ),
+    return const Column(
+      children: [
+        AllExpensesSection(),
+        Gap(32),
+        QuickInvoice(),
+      ],
     );
   }
 }

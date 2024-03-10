@@ -8,15 +8,13 @@ class TrailingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MyCardAndTransactionHistory(),
-          Gap(32),
-          IncomeSection(),
-        ],
-      ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        MyCardAndTransactionHistory(),
+        Gap(32),
+        IncomeSection(),
+      ],
     );
   }
 }
