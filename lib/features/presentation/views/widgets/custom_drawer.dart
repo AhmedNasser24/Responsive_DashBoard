@@ -19,28 +19,30 @@ class CustomDrawer extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kWhiteColor,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: const CustomScrollView(
-        slivers: [
-          SliverGap(16),
-          SliverToBoxAdapter(child: UserInfo(userInfoModel: userInfoItem)),
-          SliverListOfDrawerItems(),
-          SliverFillRemaining(
-            hasScrollBody: false, // Set to false to prevent double scroll
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(child: SizedBox()), // Expands to fill available space
-                SettingAndLogoutDrawerItem(),
-      
-                Gap(48),
-                // Add more widgets if needed
-              ],
+    return Drawer(
+      child: Container(
+        color: kWhiteColor,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: const CustomScrollView(
+          slivers: [
+            SliverGap(16),
+            SliverToBoxAdapter(child: UserInfo(userInfoModel: userInfoItem)),
+            SliverListOfDrawerItems(),
+            SliverFillRemaining(
+              hasScrollBody: false, // Set to false to prevent double scroll
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: SizedBox()), // Expands to fill available space
+                  SettingAndLogoutDrawerItem(),
+        
+                  Gap(48),
+                  // Add more widgets if needed
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

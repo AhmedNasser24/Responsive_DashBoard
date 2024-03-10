@@ -13,15 +13,16 @@ class DotsIndicator extends StatelessWidget {
     return Row(
         children: List.generate(
       3,
-      (index) =>  Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: GestureDetector(
-          onTap: (){
-            if ( index != selectedPage){
-              pageController.jumpToPage(index) ;
-            }
-          },
-          child: CustomDotIndicator(active: index == selectedPage)),
+      (index) =>  GestureDetector(
+        onTap: (){
+          if ( index != selectedPage){
+            pageController.jumpToPage(index) ;
+          }
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: CustomDotIndicator(active: index == selectedPage),
+        ),
       ),
     ));
   }

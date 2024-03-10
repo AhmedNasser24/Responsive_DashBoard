@@ -20,7 +20,7 @@ class CustomPieChart extends StatelessWidget {
           sections: incomeModel.map((e) => PieChartSectionData(
               value: e.percent.toDouble() ,
               showTitle: false,
-              radius: 20,
+              radius: 15,
               color: e.color,
             ),).toList() 
         ),

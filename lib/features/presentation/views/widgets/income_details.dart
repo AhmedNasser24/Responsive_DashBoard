@@ -14,7 +14,10 @@ class IncomeDetails extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: incomeModel
           .map(
-            (e) => DetailItem(incomeModel: e),
+            (e) => Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: DetailItem(incomeModel: e),
+            ),
           )
           .toList(),
     );
