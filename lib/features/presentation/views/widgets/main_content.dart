@@ -11,6 +11,7 @@ class MainContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         AllExpensesSection(),
         Gap(32),

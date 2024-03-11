@@ -32,31 +32,30 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
   ScrollController scrollController = ScrollController(initialScrollOffset: 52);
   @override
   Widget build(BuildContext context) {
-    double screenW = MediaQuery.sizeOf(context).width;
-    double itemWidth = 180;
     return SingleChildScrollView(
       controller: scrollController,
       scrollDirection: Axis.horizontal,
       child: Row(
           // children: items.map((item) => Expanded(child: AllExpensesItem(item: item))).toList(),
           children: items.asMap().entries.map((e) {
-        int key = e.key;
+        int index = e.key;
         var item = e.value;
         return GestureDetector(
             onTap: () {
-              if (key != selectedItem) {
+              if (index != selectedItem) {
                 setState(() {
-                  selectedItem = key;
+                  selectedItem = index;
                 });
               }
-              scrollToIndex(key, itemWidth);
+              scrollToIndex(index);
             },
-            child: AllExpensesItem(item: item, active: selectedItem == key));
+            child: AllExpensesItem(item: item, active: selectedItem == index));
       }).toList()),
     );
   }
 
-  void scrollToIndex(int key, double itemWidth) {
+  void scrollToIndex(int key) {
+    double itemWidth = 180;
     double offset = key * itemWidth;
     if (offset > scrollController.position.maxScrollExtent) {
       offset = scrollController.position.maxScrollExtent;
