@@ -27,9 +27,64 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
         title: 'Expenses',
         date: 'April 2024',
         price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
+    AllExpensesItemModel(
+        icon: Assets.imagesExpenses,
+        title: 'Expenses',
+        date: 'April 2024',
+        price: r'$20.129'),
   ];
   int selectedItem = 0;
-  ScrollController scrollController = ScrollController(initialScrollOffset: 52);
+  ScrollController scrollController = ScrollController(initialScrollOffset: 0);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -54,9 +109,9 @@ class _AllExpensesListItemState extends State<AllExpensesListItem> {
     );
   }
 
-  void scrollToIndex(int key) {
+  void scrollToIndex(int index) {
     double itemWidth = 180;
-    double offset = key * itemWidth;
+    double offset = index * itemWidth;
     if (offset > scrollController.position.maxScrollExtent) {
       offset = scrollController.position.maxScrollExtent;
     }
